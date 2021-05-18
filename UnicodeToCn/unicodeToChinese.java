@@ -1,9 +1,8 @@
 package UnicodeToCn;
+
 /**
  * @Title: unicodeEncode 
  * @Description: unicode编码
- * @param string
- * @return
  */
 public static String unicodeEncode(String string) {
     char[] utfBytes = string.toCharArray();
@@ -21,8 +20,6 @@ public static String unicodeEncode(String string) {
 /**
  * @Title: unicodeDecode 
  * @Description: unicode解码
- * @param str
- * @return
  */
 public static String unicodeDecode(String string) {
     Pattern pattern = Pattern.compile("(\\\\u(\\p{XDigit}{4}))");
