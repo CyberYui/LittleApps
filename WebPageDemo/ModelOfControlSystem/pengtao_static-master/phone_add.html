@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>水一汸后台管理系统</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/AdminLTE.min.css">
+    <link rel="stylesheet" href="css/_all-skins.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/textarea2.css">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+
+<div class="wrapper">
+    <header class="main-header">
+        <a href="index.html" class="logo">
+            <span class="logo-mini"><b>ALT</b></span>
+            <span class="logo-lg"><b>水一汸</b>后台管理系统</span>
+        </a>
+        <nav class="navbar navbar-static-top">
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <li class="user user-menu">
+                        <a href="login.html">退出登录</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="image/user2-160x160.jpg" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>JetBamboo</p>
+                    <i class="fa fa-circle text-primary"></i>
+                    <small> 超级管理员</small>
+                </div>
+            </div>
+
+            <!-- START: 菜单栏 -->
+            
+            <!-- END: 菜单栏 -->
+        </section>
+    </aside>
+
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>新增电话订单<small>Add New Phone Order</small></h1>
+            <ol class="breadcrumb">
+                <li><a href="index.html"><i class="fa fa-home"></i>首页</a></li>
+                <li><a href="phone.html"><i class="fa fa-phone"></i>电话订单</a></li>
+                <li><a href="phone_add.html">新增电话订单</a></li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-primary">
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="form-group">
+                                        <label>配送站名称</label>
+                                        <span class="form-display">提莫爷爷的百货商店</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="form-group">
+                                        <label>负责人姓名</label>
+                                        <span class="form-display">提莫爷爷</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="form-group">
+                                        <label>负责人联系方式</label>
+                                        <span class="form-display">12345678900</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="form-group pull-right">
+                                        <button class="btn btn-primary" id="btn-add"><i class="fa fa-plus"></i> 新增商品</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 配送站ID -->
+                            <input type="hidden" id="DSID" th:value="${}">
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4>商品信息</h4>
+                                    <table class="table table-hover table-striped table-center-col" id="v-table">
+                                        <tr>
+                                            <th></th>
+                                            <th>商品编号</th>
+                                            <th>商品名称</th>
+                                            <th>数量</th>
+                                            <th width="50">操作</th>
+                                        </tr>
+                                        <tr v-for="(item, index) in list" v-cloak :id="item.id">
+                                            <td>{{ index + 1 }}</td>
+                                            <td>{{ item.id }}</td>
+                                            <td>{{ item.name }}</td>
+                                            <td>{{ item.num }}</td>
+                                            <td>
+                                                <button class="btn btn-xs btn-default btn-del"><i class="fa fa-trash-o"></i></button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4>备注</h4>
+                                    <textarea id="textarea2" v-cloak></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-footer">
+                            <div class="msg"></div>
+                             <div class="form-group pull-right">
+                                <button class="btn btn-default">返回</button>
+                                <button class="btn btn-default">重置</button>
+                                <button id="btn-save" class="btn btn-primary">保存</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs"><b>版本</b> 1.0.1</div>
+        <strong>2017 &copy; 绿魔方后台管理系统 <a href="http://www.keessi.com/">湖南奇思广议网络科技有限公司</a></strong>
+    </footer>
+
+</div>
+
+<!-- 新增商品 -->
+<div class="modal fade" id="modal-add" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">增加新的商品</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="type">商品</label>
+                <select id="type" class="form-control">
+                    <option value="-1" disabled selected>请选择商品</option>
+                    <option value="123234">全家桶</option>
+                    <option value="414141">麦趣鸡盒</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="num">数量（桶）</label>
+                <input id="num" type="number" class="form-control" placeholder="请输入数量">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal">取消</button>
+            <button id="btn-add-save" class="btn btn-primary">保存</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.slimscroll.min.js"></script>
+<script src="js/fastclick.js"></script>
+<script src="js/adminlte.min.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/utils.js"></script>
+<!-- page level js -->
+<script src="js/textarea2.js"></script>
+<script src="js/pages/phone.add.js"></script>
+</body>
+</html>

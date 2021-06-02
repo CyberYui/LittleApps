@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>水一汸后台管理系统</title>
+    <link rel="stylesheet" href="css/printStyle.css">
+</head>
+<body>
+<div class="content">
+    <!-- 标题 -->
+    <div class="row">
+        <h2 class="title">订单详情</h2>
+    </div>
+    <!-- 基本信息 -->
+    <div class="row">
+        <table class="detail">
+            <tr>
+                <td>订单编号：</td>
+                <td id="id">20171108254</td>
+                <td></td>
+                <td><canvas id="barcode"></canvas></td>
+                <td><img id="qrcode" src="image/qrcode.png"></td>
+            </tr>
+            <tr>
+                <td>配送站名称：</td>
+                <td>铁道学院配送站</td>
+                <td></td>
+                <td>订单日期：</td>
+                <td>2017年11月8日</td>
+            </tr>
+            <tr>
+                <td>负责人姓名：</td>
+                <td>沈鹏程</td>
+                <td></td>
+                <td>欠款：</td>
+                <td>876元</td>
+            </tr>
+            <tr>
+                <td>负责人联系方式：</td>
+                <td>15388080642</td>
+                <td></td>
+                <td>配送员姓名：</td>
+                <td>鲍傳堰</td>
+            </tr>
+            <tr>
+                <td colspan="5">订单备注：啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</td>
+            </tr>
+        </table>
+        <table class="box">
+            <tr>
+                <th></th>
+                <th>商品编号</th>
+                <th>商品名称</th>
+                <th>数量（桶）</th>
+                <th>商品金额（元）</th>
+                <th>实收（桶）</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>00001</td>
+                <td>1号水</td>
+                <td>87</td>
+                <td>870</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>00001</td>
+                <td>1号水</td>
+                <td>87</td>
+                <td>870</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>00001</td>
+                <td>1号水</td>
+                <td>87</td>
+                <td>870</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>#</td>
+                <td>合计</td>
+                <td></td>
+                <td>157</td>
+                <td>905</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <!-- 历史桶数据 -->
+    <div class="row">
+        <h3 class="title">历史桶数据：</h3>
+        <table class="box">
+            <tr>
+                <th></th>
+                <th>类型</th>
+                <th>商品名称</th>
+                <th>数量（桶）</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>欠桶</td>
+                <td>1号桶</td>
+                <td>87</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>欠桶</td>
+                <td>2号桶</td>
+                <td>87</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>存桶</td>
+                <td>3号桶</td>
+                <td>87</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>欠桶</td>
+                <td>1号桶</td>
+                <td>87</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>欠桶</td>
+                <td>2号桶</td>
+                <td>87</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>存桶</td>
+                <td>3号桶</td>
+                <td>87</td>
+            </tr>
+        </table>
+    </div>
+    <!-- 本次桶数据 -->
+    <div class="row">
+        <h3 class="title">本次桶数据：</h3>
+        <table class="box">
+            <tr>
+                <th></th>
+                <th>类型</th>
+                <th>商品名称</th>
+                <th>数量（桶）</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>欠桶</td>
+                <td>1号桶</td>
+                <td>87</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>欠桶</td>
+                <td>2号桶</td>
+                <td>87</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>存桶</td>
+                <td>3号桶</td>
+                <td>87</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>欠桶</td>
+                <td>1号桶</td>
+                <td>87</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>欠桶</td>
+                <td>2号桶</td>
+                <td>87</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>存桶</td>
+                <td>3号桶</td>
+                <td>87</td>
+            </tr>
+        </table>
+    </div>
+    <!-- 支付信息 -->
+    <div class="row">
+        <table class="detail right">
+            <tr>
+                <td>应付金额：</td>
+                <td>905元</td>
+                <td></td>
+                <td>金额：</td>
+                <td class="line"></td>
+            </tr>
+            <tr>
+                <td>还款：</td>
+                <td class="line"></td>
+                <td></td>
+                <td>付款方式：</td>
+                <td>
+                    <i class="block"></i>现金
+                    <i class="block"></i>转账
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>微信：</td>
+                <td class="line"></td>
+            </tr>
+        </table>
+    </div>
+    <!-- 签字 -->    
+    <div class="row">
+        <table class="detail right">
+            <tr>
+                <td>送水员签名：</td>
+                <td class="line"></td>
+                <td></td>
+                <td>客户检查签收：</td>
+                <td class="line"></td>
+            </tr>
+        </table>
+    </div>
+    <!-- 按钮 -->
+    <div class="row noprint">
+        <button id="btn-print">打印此页</button>
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/JsBarcode.all.min.js"></script>
+<script>
+    window.onload = function() {
+        let id = $('#id').html();
+        $('#barcode').JsBarcode(id, { 
+            height: 36,
+            displayValue: false,
+            margin: 5
+        });
+        $('#btn-print').click(function() {
+            print();
+        });
+    }
+</script>
+</body>
+</html>

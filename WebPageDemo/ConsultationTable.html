@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>远程医疗系统信息管理</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="CSS/tableDemo.css" rel="stylesheet">
+    <link href="CSS/font-awesome.min.css" rel="stylesheet">
+    <!-- Custom script for this page -->
+    <script>
+    window.onload = function () {
+    'use strict';
+    // 打开新增会诊申请信息窗口
+    $(document).on('click', '#btn-add', function () {
+        $('#add-number').val('');
+        $('#add-name').val('');
+        $('#add-phone').val('');
+        $('#add-type').val('');
+        $('#modal-add').modal('show');
+      });
+
+    // 打开修改信息窗口
+    $(document).on('click', '.btn-edit', function () {
+        let rows = $(this).parent().parent().find('td');
+        console.log(rows);
+        $('#edit-number').val('');
+        $('#edit-name').val('');
+        $("#edit-phone").val('');
+        $("#edit-type").val('');
+        // 二次判断select是否被选中了
+        if (isEmpty($('#edit-number option:selected'))) {
+          $("#edit-number").val('');
+        }
+        $('#modal-edit').modal('show');
+      });
+    }
+    </script>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">远程医疗信息系统</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">个人信息</a></li>
+            <li><a href="#">关于系统</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="在此搜索表名">
+            <!--搜索按钮-->
+            <button class="btn btn-primary" id="btn-search">搜索</button>
+            <!--button end-->
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li><a href="#">人员信息管理表</a></li>
+            <li class="active"><a href="#">会诊申请信息表<span class="sr-only">(current)</span></a></li>
+            <li><a href="#">病历存档信息表</a></li>
+            <li><a href="#">药品信息表</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="">退出系统</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="sub-header">会诊申请信息表</h1>
+          <div class="col-md-3 col-sm-6">
+            <input type="text" class="form-control" placeholder="编号搜索">
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <input type="text" class="form-control" placeholder="会诊信息申请编号搜索">
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <input type="text" class="form-control" placeholder="科室搜索">
+          </div>
+          <!--搜索按钮-->
+            <button class="btn btn-primary" id="btn-detailSearch">搜索</button>
+          <!--button end-->
+          <!--新增信息按钮-->
+            <button class="btn btn-primary" id="btn-add">新增</button>
+          <!--button end-->
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>编号#</th>
+                  <th>会诊信息申请编号</th>
+                  <th>申请状况</th>
+                  <th>科室信息</th>
+                  <th>会诊时间</th>
+                  <th>初步诊断结果</th>
+                  <th>会诊最终结果</th>
+                  <th>备注信息</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- 信息表测试内容 -->
+                <tr>
+                  <td>1</td>
+                  <td>3021201805101625</td>
+                  <td>申请中</td>
+                  <td>内科</td>
+                  <td></td>
+                  <td>颅内神经挫伤，重度昏迷</td>
+                  <td></td>
+                  <td>初诊医师：王文远</td>
+                  <!-- 信息表按钮栏 -->
+                  <td>
+                    <button class="btn btn-xs btn-default btn-edit">
+                      <i class="glyphicon glyphicon-wrench">修改</i>
+                    </button>
+                    <button class="btn btn-xs btn-default btn-del">
+                      <i class="glyphicon glyphicon-trash">删除</i>
+                    </button>
+                  </td>
+                  <!-- 信息表按钮栏结束 -->
+                </tr>
+                <!-- 信息表测试内容结束 -->
+              </tbody>
+            </table>
+          </div>
+          <!-- 底部页数按钮 -->
+          <div class="box-footer">
+            <ul class="pagination pagination-sm no-margin pull-right">
+              <li>
+                <a href="#">«</a>
+              </li>
+              <li>
+                <a href="#">1</a>
+              </li>
+              <li>
+                <a href="#">2</a>
+              </li>
+              <li>
+                <a href="#">3</a>
+              </li>
+              <li>
+                <a href="#">4</a>
+              </li>
+              <li>
+                <a href="#">»</a>
+              </li>
+            </ul>
+          </div>
+          <!-- 底部页数按钮结束 -->
+        </div>
+      </div>
+    </div>
+    <footer>DemoByCyberYui_CSU2018</footer>
+    <!-- 页面到此结束 -->
+    <!-- 新增信息 -->
+    <div class="modal fade" id="modal-add" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <form class="modal-content">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">增加新的信息</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="add-number">编号</label>
+              <input id="add-number" type="text" class="form-control" placeholder="编号自动获取">
+            </div>
+            <div class="form-group">
+              <label for="add-idnumber">会诊信息申请编号</label>
+              <input id="add-idnumber" type="text" class="form-control" placeholder="请输入会诊信息申请编号(4位科室编号+12位时间信息)">
+            </div>
+            <div class="form-group">
+              <label for="add-name">申请人</label>
+              <input id="add-name" type="text" class="form-control" placeholder="请输入姓名">
+            </div>
+            <div class="form-group">
+              <label for="add-phone">联系方式(申请人电话号码)</label>
+              <input id="add-phone" type="number" class="form-control" placeholder="请输入联系方式">
+            </div>
+            <div class="form-group">
+              <label for="add-salary">科室信息</label>
+              <select id="add-salary" class="form-control">
+                <option value="-1" disabled selected>请选择科室</option>
+                <option value="外科">外科(0001)</option>
+                <option value="内科">内科(0002)</option>
+                <option value="口腔科">口腔科(1022)</option>
+                <option value="骨科">骨科(4023)</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="button" id="add-save" class="btn btn-primary">保存</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- 以上为新增信息的弹出框 -->
+    <!-- 修改信息 -->
+    <div class="modal fade" id="modal-edit" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <form class="modal-content">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">修改当前信息</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="edit-number">编号</label>
+              <input id="edit-number" type="text" class="form-control" placeholder="编号#">
+            </div>
+            <div class="form-group">
+              <label for="edit-idnumber">会诊信息申请编号</label>
+              <input id="edit-idnumber" type="text" class="form-control" placeholder="会诊信息申请编号(4位科室编号+12位时间信息)">
+            </div>
+            <div class="form-group">
+              <label for="edit-name">申请人</label>
+              <input id="edit-name" type="text" class="form-control" placeholder="请输入新的申请人姓名">
+            </div>
+            <div class="form-group">
+              <label for="edit-phone">联系方式(申请人电话号码)</label>
+              <input id="edit-phone" type="number" class="form-control" placeholder="请输入新的申请人联系方式">
+            </div>
+            <div class="form-group">
+              <label for="edit-salary">科室信息</label>
+              <select id="edit-salary" class="form-control">
+                <option value="-1" disabled selected>请选择科室</option>
+                <option value="外科">外科(0001)</option>
+                <option value="内科">内科(0002)</option>
+                <option value="口腔科">口腔科(1022)</option>
+                <option value="骨科">骨科(4023)</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="button" id="edit-save" class="btn btn-primary">保存</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- 以上为修改信息的弹出框 -->
+    
+    <!-- JavaScript ================================================== -->
+    <!-- 以下代码用于加快页面读取速度或其他的脚本用处 -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="Script/jquery.slimscroll.min.js"></script>
+    <script src="Script/fastclick.js"></script>
+    <script src="Script/adminlte.min.js"></script>
+    <script src="Script/vue.js"></script>
+    <script src="Script/utils.js"></script>
+  </body>
+</html>

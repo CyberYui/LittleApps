@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>TestSVG</title>
+<style type="text/css">
+	
+	p.first{
+		padding:10px;
+		border-style:solid;
+		border-width:2px;
+		border-color:blue;
+		min-height:100px;
+	}
+	
+	p.second{
+		padding:10px;
+		border-style:solid;
+		border-width:5px;
+		border-color:rgb(0,153,0);
+		max-width:100px;
+	}
+	
+	p.none{border-style:none;}
+	p.dotted{border-style:dotted;}
+	p.dashed{border-style:dashed;}
+	p.double{border-style:double;}
+	p.groove{border-style:groove;}
+	p.ridge{border-style:ridge;}
+	p.inset{border-style:inset;}
+	p.outset{border-style:outset;}
+	p.hidden{border-style:hidden;}
+	
+	#divdemo{
+		border:5px solid green;
+		width:90px;
+		height:90px;
+	}
+	
+	#third{
+		background-color:#87CEFA;
+	}
+</style>
+</head>
+
+<body>
+	<div id="divdemo">The total width and height of this element is 100px.</div>
+	<!--下面的代码是SVG的例子，一个小动画-->
+	<div>
+	<svg width="1000" height="250">
+		<rect width="150" height="150" fill="orange">
+			<animate attributeName="x" from="0" to="400" dur="8s" fill="freeze" repeatCount="indefinite"/>
+			<animate attributeName="y" from="0" to="250" dur="8s" fill="freeze" repeatCount="indefinite"/>
+		</rect>
+	</svg>
+	</div>
+	<div>
+		<p class="first">Border width of this paragraph is set to 2px.The<strong>minimum height</strong>of this paragraph is set to 100px.</p>
+		<p class="second">Border width of this paragraph is set to 5px.The<strong>maximum width</strong>of this paragraph is set to 100px.</p>
+		<p class="none">This paragraph has no border.</p>
+		<p class="dotted">This is a dotted border.</p>
+		<p class="dashed">This is a dashed border.</p>
+		<p class="double">This is a double border.</p>
+		<p class="groove">This is a groove border.</p>
+		<p class="ridge">This is a ridge border.</p>
+		<p class="inset">This is a inset border.</p>
+		<p class="outset">This is a outset border.</p>
+		<p class="hidden">This is a hidden border.</p>
+		<p id="third">The background color of this page is set to LightSkyBlue.</p>
+	</div>
+</body>
+</html>

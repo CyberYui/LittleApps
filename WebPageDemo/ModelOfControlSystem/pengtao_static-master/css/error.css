@@ -1,0 +1,60 @@
+* {
+    font-size: 14px;
+    font-family: "Microsoft YaHei", sans-serif;
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: #EEE;
+}
+.error {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 80px;
+}
+.error .code, .error .box {
+    display: inline-block;
+    text-align: left;
+    padding: 0 10px;
+}
+.error .code {
+    font-size: 180px;
+}
+.error .c404 {
+    color: orange;
+}
+.error .c500 {
+    color: orchid;
+}
+.error .c403 {
+    color: orangered;
+}
+.error .box {
+    padding-bottom: 40px;
+}
+.error .box .title {
+    font-size: 32px;
+}
+.error .box .content {
+    margin: 20px 0;
+}
+.error .box .content p {
+    margin: 5px 0;
+}
+.error .box .button button {
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}
+.error .error-code textarea {
+    margin-top: 30px;
+    padding: 10px;
+    width: 800px;
+    height: 200px;
+    resize:none;
+
+    /*太丑了不要了*/
+    display: none;
+}

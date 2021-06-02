@@ -1,0 +1,103 @@
+/*Home的Style，以及一些全局设置*/
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+html {
+    height: 100%;
+    overflow: hidden;
+    background: #fff;
+}
+
+body {
+    height: 100%;
+    overflow: hidden;
+    background: #fff;
+}
+
+div {
+    background: #f60;
+    line-height: 1.6;
+}
+
+.top {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    right: 10px;
+    height: 50px;
+}
+
+.side {
+    position: absolute;
+    left: 10px;
+    top: 70px;
+    bottom: 70px;
+    width: 200px;
+    overflow: auto;
+}
+
+.main {
+    position: absolute;
+    left: 220px;
+    top: 70px;
+    bottom: 70px;
+    right: 10px;
+    overflow: auto;
+}
+
+.bottom {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    height: 50px;
+}
+
+html {
+    _padding: 70px 10px;
+}
+
+.top {
+    _height: 50px;
+    _margin-top: -60px;
+    _margin-bottom: 10px;
+    _position: relative;
+    _top: 0;
+    _right: 0;
+    _bottom: 0;
+    _left: 0;
+}
+
+.side {
+    _height: 100%;
+    _float: left;
+    _width: 200px;
+    _position: relative;
+    _top: 0;
+    _right: 0;
+    _bottom: 0;
+    _left: 0;
+}
+
+.main {
+    _height: 100%;
+    _margin-left: 207px;
+    _position: relative;
+    _top: 0;
+    _right: 0;
+    _bottom: 0;
+    _left: 0;
+}
+
+.bottom {
+    _height: 50px;
+    _margin-top: 10px;
+    _position: relative;
+    _top: 0;
+    _right: 0;
+    _bottom: 0;
+    _left: 0;
+}

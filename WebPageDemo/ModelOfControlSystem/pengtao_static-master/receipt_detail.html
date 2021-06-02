@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>水一汸后台管理系统</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/AdminLTE.min.css">
+    <link rel="stylesheet" href="css/_all-skins.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/icheck_blue.css">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+
+<div class="wrapper">
+    <header class="main-header">
+        <a href="index.html" class="logo">
+            <span class="logo-mini"><b>ALT</b></span>
+            <span class="logo-lg"><b>水一汸</b>后台管理系统</span>
+        </a>
+        <nav class="navbar navbar-static-top">
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <li class="user user-menu">
+                        <a href="login.html">退出登录</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="image/user2-160x160.jpg" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>JetBamboo</p>
+                    <i class="fa fa-circle text-primary"></i>
+                    <small> 超级管理员</small>
+                </div>
+            </div>
+
+            <!-- START: 菜单栏 -->
+            
+            <!-- END: 菜单栏 -->
+        </section>
+    </aside>
+
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>订单详情<small>Order Detail</small></h1>
+            <ol class="breadcrumb">
+                <li><a href="index.html"><i class="fa fa-home"></i>首页</a></li>
+                <li><a href="receipt.html"><i class="fa fa-clipboard"></i>回单管理</a></li>
+                <li><a href="receipt_detail.html">订单详情</a></li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-primary">
+                        <div class="box-body">
+                            <div class="row" >
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>订单编号</label>
+                                        <span class="form-display" id="orderId">{{ data.id }}</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>配送站名称</label>
+                                        <span class="form-display">{{ data.pname }}</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>负责人姓名</label>
+                                        <span class="form-display">{{ data.uname }}</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="text-phone">负责人联系方式</label>
+                                        <span class="form-display">{{ data.phone }}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>条形码</label>
+                                        <canvas id="barcode"></canvas>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>订单日期</label>
+                                        <span class="form-display">{{ data.date }}</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>欠款 
+                                            <span class="label label-danger" v-if="data.status == 0">未付款</span>
+                                            <span class="label label-success" v-else>已付款</span>
+                                        </label>
+                                        <span class="form-display">{{ data.overdraft }}元</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                     <div class="form-group">
+                                        <label>备注</label>
+                                        <div class="form-display">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" >
+                                <div class="col-md-12">
+                                    <table class="table table-hover table-striped table-center">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>商品编号</th>
+                                            <th>商品名称</th>
+                                            <th>数量（桶）</th>
+                                            <th>商品金额</th>
+                                            <th>实收（桶）</th>
+                                        </tr>
+                                        <tr id="1">
+                                            <td>1</td>
+                                            <td>{{ item.id }}</td>
+                                            <td>{{ item.name }}</td>
+                                            <td class="num">20</td>
+                                            <td>{{ item.price }}</td>
+                                            <td width="120"><input type="number" class="item-num form-control form-control-sm"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row" >
+                                <div class="col-md-12">
+                                    <h4 class="pull-left">桶数据</h4>
+                                    <button id="btn-add" class="pull-right btn btn-primary btn-sm">添加</button>
+                                    <table class="table table-hover table-striped table-center" id="v-bucket">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>类型</th>
+                                            <th>商品名称</th>
+                                            <th>数量（桶）</th>
+                                            <th>删除</th>
+                                        </tr>
+                                        <tr v-for="(item, index) in bucketList" :id="item.id">
+                                            <td>{{ index + 1 }}</td>
+                                            <td>{{ item.type }}</td>
+                                            <td>{{ item.name }}</td>
+                                            <td>{{ item.num }}</td>
+                                            <td><button class="btn-del btn btn-xs btn-default"><i class="fa fa-times"></i></button></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row" >
+                                <div class="col-md-6">
+                                    <h4>配送员</h4>
+                                    <div class="form-group">
+                                        <span class="form-display">{{ data.dname }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" >
+                                <div class="col-lg-12">
+                                    <h4>支付信息</h4>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>应付金额</label>
+                                        <span class="form-display">{{ data.totalPrice }}元</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>实付金额</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-rmb"></i></span>
+                                            <input id="text-pay" type="number" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>本次欠款</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-rmb"></i></span>
+                                            <input id="text-debt" type="number" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>还款金额</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-rmb"></i></span>
+                                            <input id="text-repay" type="number" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="msg"></div>
+                                    <div class="pull-right">
+                                        <button id="btn-submit" class="btn btn-primary">确认提交</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs"><b>版本</b> 1.0.1</div>
+        <strong>2017 &copy; 绿魔方后台管理系统 <a href="http://www.keessi.com/">湖南奇思广议网络科技有限公司</a></strong>
+    </footer>
+
+</div>
+
+<!-- 新增桶 -->
+<div class="modal fade" id="modal-add" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">增加新的桶</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="select-type">桶类型</label>
+                <select id="select-type" class="form-control">
+                    <option value="-1" disabled selected>请选择桶类型</option>
+                    <option value="全家桶">全家桶</option>
+                    <option value="麦趣鸡盒">麦趣鸡盒</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="select-name">商品名称</label>
+                <select id="select-name" class="form-control">
+                    <option value="-1" disabled selected>请选择商品名称</option>
+                    <option value="吮指原味鸡">吮指原味鸡</option>
+                    <option value="豪华牛肉堡">豪华牛肉堡</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="input-number">数量（桶）</label>
+                <input id="input-number" type="number" class="form-control" placeholder="请输入数量">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal">取消</button>
+            <button id="btn-save" class="btn btn-primary">保存</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.slimscroll.min.js"></script>
+<script src="js/fastclick.js"></script>
+<script src="js/adminlte.min.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/utils.js"></script>
+<!-- page level js -->
+<script src="js/icheck.min.js"></script>
+<script src="js/JsBarcode.all.min.js"></script>
+<script src="js/pages/receipt.detail.js"></script>
+</body>
+</html>

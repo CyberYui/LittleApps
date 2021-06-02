@@ -1,0 +1,120 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 9px;
+}
+
+/* 换行 */
+.row {
+    margin: 5px 0;
+}
+
+/* 让h2 h3好看点 */
+h2.title  {
+    text-align: center;
+    font-weight: normal;
+    font-size: 24px;
+}
+h3.title {
+    font-weight: normal;
+    font-size: 16px;
+}
+
+/* 固定页面大小 */
+.content {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* 让它与下面的表格贴的不是那么紧 */
+table.detail {
+    margin-bottom: 10px;
+}
+
+/* 给box增加边框 */
+table.box {
+    width: 100%;
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+table.box tr td,
+table.box tr th {
+    text-align: center;
+    padding: 1px 0;
+    border: 1px solid #000;
+} 
+
+/* 让这个table看不出是table的同时让它好好看 */
+table.detail {
+    width: 100%;
+}
+table.detail tr td {
+    padding: 3px 0;
+}
+table.detail tr td:nth-child(3) {
+    min-width: 100px;
+}
+table.detail.right tr td:nth-child(1),
+table.detail.right tr td:nth-child(4) {
+    text-align: right;
+}
+
+/* 划出一条美丽的线 */
+table.detail .line {
+    width: 200px;
+    border-bottom: 1px solid #000;
+}
+
+/* 这是一个方块 */
+.block {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #000;
+    margin-right: 5px;
+}
+.block:nth-child(2) {
+    margin-left: 20px;
+}
+
+/* 二维码 */
+#qrcode {
+    width: 100px;
+    height: 100px;
+}
+
+/* 这是一个很好看的按钮哦 */
+button#btn-print {
+    display: inline-block;
+    padding: 15px 64px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;   
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+
+    transition: 0.2s;
+
+    margin-top: 40px;
+}
+button#btn-print:hover {
+    cursor: pointer;
+    background-color: #3e8e41;
+}
+button#btn-print:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+/* 不打印区域 */
+@media print {
+    .noprint {
+        display: none;
+    }
+}
