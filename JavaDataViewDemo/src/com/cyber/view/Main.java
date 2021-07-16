@@ -45,6 +45,7 @@ public class Main {
 
     /**
      * 查询的天气
+     *
      * @return String
      * @description 查询天气函数
      */
@@ -60,24 +61,28 @@ public class Main {
 
     /**
      * 发送短信函数
-     * @param name 对象名称
+     *
+     * @param name        对象名称
      * @param phoneNumber 电话号码
-     * @param s1 天气中文
-     * @param s2 体感温度
-     * @param s3 送她的话
+     * @param s1          天气中文
+     * @param s2          体感温度
+     * @param s3          送她的话
      * @return String
      */
     public static String sendSms(String name, String phoneNumber, String s1, String s2, String s3) {
         try {
             name = URLEncoder.encode(name, "utf-8");
-            System.out.println("Name:"+name);
-            System.out.println("PhoneNum:"+phoneNumber);
+            System.out.println("Name:" + name);
+            System.out.println("PhoneNum:" + phoneNumber);
             s1 = URLEncoder.encode(s1, "utf-8");
-            System.out.println("s1:"+s1);
-            System.out.println("s2:"+s2);
+            System.out.println("s1:" + s1);
+            System.out.println("s2:" + s2);
             s3 = URLEncoder.encode(s1, "utf-8");
-            System.out.println("s3:"+s3);
-            return name + "&phoneNumber=" + phoneNumber + "&s1=" + s1 + "&s2=" + s2 + "&s3=" + s3;
+            System.out.println("s3:" + s3);
+            // 通过连接 URL 发送请求,完成短信发送
+            System.out.println("params=https://itdage.cn/hw/hwSms?name=" + name + "&phoneNumber=" + phoneNumber +
+                    "&s1=" + s1 + "&s2=" + s2 + "&s3=" + s3);
+            return getString("https://itdage.cn/hw/hwSms?name=" + name + "&phoneNumber=" + phoneNumber + "&s1=" + s1 + "&s2=" + s2 + "&s3=" + s3);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -92,15 +97,15 @@ public class Main {
         String phoneNumber = "15173177539";
         String s1 = "雨";
         String s2 = "25-35";
-        // String s3 = "宝,今天晚上输液了,输得什么液,想你的夜!";
-        String s3 = "今天想你!";
+        //String s3 = "宝,今天晚上输液了,输得什么液,想你的夜!";
+        String s3 = "宝，我今天熬夜了，熬得什么夜，想你的夜！";
         // 调用创建的函数 , 输出天气
-        // System.out.println(getWeather("西宁"));
-        // 使用此种方法会报错 , 因为数据没有进行格式转换
-        // String json = getString("https://itdage.cn/hw/hwSms?name=" + name + "&phoneNumber="+phoneNumber+"&s1"+s1+"&s2"+s2+"&s3"+s3);
+        System.out.println(getWeather("西宁"));
+        // 使用下面的方法会报错 , 因为数据没有进行格式转换
+        // String json = getString("https://itdage.cn/hw/hwSms?name=" + name +
+        // "&phoneNumber="+phoneNumber+"&s1"+s1+"&s2"+s2+"&s3"+s3);
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------");
         // 使用创建的函数获取发送完信息后的值
-        // System.out.println("params:"+sendSms(name,phoneNumber,s1,s2,s3));
-        String json = getString("https://itdage.cn/hw/hwSms?name=" + sendSms(name,phoneNumber,s1,s2,s3));
-        System.out.println(json);
+        sendSms(name, phoneNumber, s1, s2, s3);
     }
 }
